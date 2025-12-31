@@ -1,8 +1,13 @@
+import readchar
+import sys
+
 def current_user_is_higher_priority(a, b):
   print(f"\nWhich is higher priority?")
   print(f"1) {a}")
   print(f"2) {b}")
-  choice = input("Choose 1 or 2: ").strip()
+  print("Choose 1 or 2: ", end="", flush=True)
+  choice = readchar.readkey()
+  print(choice)
   return choice == "1"
 
 def user_compare_items(items):
