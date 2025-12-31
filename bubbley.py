@@ -1,5 +1,3 @@
-#Original AI-generated template as a starter
-
 def ask_user(a, b):
   print(f"\nWhich is higher priority?")
   print(f"1) {a}")
@@ -19,19 +17,30 @@ def bubbley(items):
       break
   return items
 
-def provide_inputs():
+def provide_items():
   raw = input('Enter items to be categorized, separated by commas:\n> ')
   items = []
   for item in raw.split(","):
     cleaned_item = item.strip()
     if cleaned_item:
       items.append(cleaned_item)
-      print("Appeneded element", cleaned_item)
+  return items
+
+def display_sorted_items(sorted_items):
+  print("Here are your items, sorted from highest to lowest priority:")
+  n = 1
+  for item in sorted_items:
+    print("#", n, ":", item)
+    n += 1
 
 def main():
   print("Welcome to Bubbley — a manual prioritization tool!\n")
   print("Enter items one per line. Leave blank to finish.\n")
-  inputs = provide_inputs()
-  #bubbley();
+  items = provide_items()
+  if items:
+    sorted_items = bubbley(items);
+    display_sorted_items(sorted_items)
+  else:
+    print("Sorry, no valid items were found")
 
 main()
