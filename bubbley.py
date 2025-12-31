@@ -1,16 +1,16 @@
-def ask_user(a, b):
+def current_user_is_higher_priority(a, b):
   print(f"\nWhich is higher priority?")
   print(f"1) {a}")
   print(f"2) {b}")
   choice = input("Choose 1 or 2: ").strip()
   return choice == "1"
 
-def bubbley(items):
+def user_compare_items(items):
   n = len(items)
   for i in range(n):
     swapped = False
     for j in range(n - i - 1):
-      if not ask_user(items[j], items[j+1]):
+      if not current_user_is_higher_priority(items[j], items[j+1]):
         items[j], items[j+1] = items[j+1], items[j]
         swapped = True
     if not swapped:
@@ -30,15 +30,15 @@ def display_sorted_items(sorted_items):
   print("Here are your items, sorted from highest to lowest priority:")
   n = 1
   for item in sorted_items:
-    print("#", n, ":", item)
+    print(f"#{n}: {item}")
     n += 1
 
 def main():
-  print("Welcome to Bubbley — a manual prioritization tool!\n")
+  print("Welcome to Bubbley -- a manual prioritization tool!\n")
   print("Enter items one per line. Leave blank to finish.\n")
   items = provide_items()
   if items:
-    sorted_items = bubbley(items);
+    sorted_items = user_compare_items(items);
     display_sorted_items(sorted_items)
   else:
     print("Sorry, no valid items were found")
