@@ -1,21 +1,24 @@
 import readchar
-import sys
 
-def current_user_is_higher_priority(a, b):
+def first_is_higher_priority(a, b):
   print(f"\nWhich is higher priority?")
   print(f"1) {a}")
   print(f"2) {b}")
   print("Choose 1 or 2: ", end="", flush=True)
   choice = readchar.readkey()
   print(choice)
-  return choice == "1"
+  if choice == "1" or choice == "2":
+    return choice == "1"
+  else:
+    print("Input invalid, try again")
+    first_is_higher_priority(a, b)
 
 def user_compare_items(items):
   n = len(items)
   for i in range(n):
     swapped = False
     for j in range(n - i - 1):
-      if not current_user_is_higher_priority(items[j], items[j+1]):
+      if not first_is_higher_priority(items[j], items[j+1]):
         items[j], items[j+1] = items[j+1], items[j]
         swapped = True
     if not swapped:
