@@ -1,7 +1,7 @@
 import readchar
 
 def first_is_higher_priority(a, b, PRIORITIZATION_PHRASE):
-  print(f"\nWhich is", PRIORITIZATION_PHRASE)
+  print(f"\nWhich is {PRIORITIZATION_PHRASE}?")
   print(f"1) {a}")
   print(f"2) {b}")
   print("Choose 1 or 2: ", end="", flush=True)
@@ -48,6 +48,7 @@ def main():
   items = provide_items()
   if items:
     sorted_items = user_compare_items(items, PRIORITIZATION_PHRASE)
+    print()
     display_sorted_items(sorted_items, PRIORITIZATION_PHRASE)
   else:
     print("Sorry, no valid items were found")

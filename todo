@@ -1,2 +1,4 @@
 fix random repeats bug (repeats are ok, but only when clarification is needed. The bug is as follow: a or b, user chooses b, then a couple rounds later is asked again, but this time, b or a. This is not needed in this case, because no question was made as to whether b was really higher priority than a, so this should be fixed)
 make input readable from a file (as an optional alternative to entering params separated by commas after launching program)
+add undo command 'u', which decrements current position in loop and removes latest element from items array
+I know it's bubble sort-based, but let's still try to improve the algorithm. I don't want to answer 100 questions to sort a list of 10 items...
